@@ -19,8 +19,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button btnLogout = (Button) findViewById(R.id.btnLogout);
-        btnLogout.setOnClickListener(this);
+        Button btnMLogout = (Button) findViewById(R.id.btnMLogout);
+        btnMLogout.setOnClickListener(this);
 
     }
 

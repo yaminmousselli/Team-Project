@@ -51,23 +51,12 @@
         android:layout_alignStart="@+id/txtUserName" />
 
     <Button
-        android:text="Enter"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/btnCancel"
-        android:layout_toRightOf="@+id/btnCancel"
-        android:layout_toEndOf="@+id/btnCancel"
-        android:layout_marginLeft="54dp"
-        android:layout_marginStart="54dp"
-        android:id="@+id/btnEnter" />
-
-    <Button
         android:text="Cancel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
         android:layout_marginStart="16dp"
-        android:id="@+id/btnCancel"
+        android:id="@+id/btnLCancel"
         android:layout_centerVertical="true"
         android:layout_alignLeft="@+id/txtPassword"
         android:layout_alignStart="@+id/txtPassword" />
@@ -84,5 +73,15 @@
         android:layout_alignRight="@+id/txtPassword"
         android:layout_alignEnd="@+id/txtPassword"
         android:textColor="@android:color/holo_red_dark" />
+
+    <Button
+        android:text="Enter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnEnter"
+        android:layout_alignBaseline="@+id/btnLCancel"
+        android:layout_alignBottom="@+id/btnLCancel"
+        android:layout_alignRight="@+id/txtPassword"
+        android:layout_alignEnd="@+id/txtPassword"/>
 
 </RelativeLayout>

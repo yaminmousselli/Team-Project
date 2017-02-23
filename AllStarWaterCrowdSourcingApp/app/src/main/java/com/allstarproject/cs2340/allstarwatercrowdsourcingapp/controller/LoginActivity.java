@@ -28,13 +28,14 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+
         Button btnEnter = (Button) findViewById(R.id.btnEnter);
         txtUser = (EditText) findViewById(R.id.txtUserName);
         txtPass = (EditText) findViewById(R.id.txtPassword);
         btnEnter.setOnClickListener(this);
 
-        Button btnCancel = (Button) findViewById(R.id.btnCancel);
-        btnCancel.setOnClickListener(this);
+        Button btnLCancel = (Button) findViewById(R.id.btnLCancel);
+        btnLCancel.setOnClickListener(this);
     }
 
     /**
@@ -49,14 +50,15 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             case R.id.btnEnter:
                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                 if (Model.verify(txtUser.getText().toString(), txtPass.getText().toString())) {
-                    startActivity(intent);
+                   startActivity(intent);
                 } else {
                     TextView textView = (TextView) findViewById(R.id.txtlbl);
-                    textView.setText("Wrong Password or Username");
+                    textView.setText("The information you have entered is " +
+                            "invalid");
                 }
                 break;
 
-            case R.id.btnCancel:
+            case R.id.btnLCancel:
                 Intent intent2 = new Intent(LoginActivity.this,
                         WelcomeActivity.class);
                 startActivity(intent2);
