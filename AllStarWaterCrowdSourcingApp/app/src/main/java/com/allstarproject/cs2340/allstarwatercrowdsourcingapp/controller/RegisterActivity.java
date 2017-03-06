@@ -4,17 +4,30 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.content.Intent;
-import android.widget.EditText;
 import android.widget.Spinner;
-import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model
-        .MySQLiteHelper;
-import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model
-        .RegisteredUserDB;
+import android.widget.EditText;
+import android.content.Intent;
+<<<<<<< HEAD
 
+=======
+import android.widget.TextView;
+>>>>>>> 7961ba36abab20ef9cea0ed94e7feae707b4f344
 
 import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.R;
+import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model.Model;
+import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model.RegisteredUser;
+import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model.*;
 
+public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
+    Model model = Model.getInstance();
+    Spinner spinner;
+    EditText txtUserName;
+    EditText txtName;
+    EditText txtEmail;
+    EditText txtPassword;
+    EditText txtConfPassword;
+
+<<<<<<< HEAD
 public class RegisterActivity extends AppCompatActivity
         implements View.OnClickListener {
 
@@ -33,6 +46,7 @@ public class RegisterActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
+<<<<<<< HEAD
         Button btnRCancel = (Button) findViewById(R.id.btnRCancel);
         btnRCancel.setOnClickListener(this);
 
@@ -43,6 +57,20 @@ public class RegisterActivity extends AppCompatActivity
         passwordText = (EditText) findViewById(R.id.txtPassword);
         lastNameText = (EditText) findViewById(R.id.txtName);
         btnRSubmit.setOnClickListener(this);
+=======
+        txtUserName = (EditText) findViewById(R.id.txtCurrentName);
+        txtName = (EditText) findViewById(R.id.txtName);
+        txtEmail = (EditText) findViewById(R.id.txtEmail);
+        txtPassword = (EditText) findViewById(R.id.txtPassword);
+        txtConfPassword = (EditText) findViewById(R.id.txtConfPassword);
+
+        spinner = (Spinner) findViewById(R.id.spinner);
+
+        Button btnRCancel = (Button) findViewById(R.id.btnCancelRegister);
+        btnRCancel.setOnClickListener(this);
+        Button btnSubmitRegister = (Button) findViewById(R.id.btnSubmitRegister);
+        btnSubmitRegister.setOnClickListener(this);
+>>>>>>> 7961ba36abab20ef9cea0ed94e7feae707b4f344
     }
 
     /**
@@ -51,6 +79,7 @@ public class RegisterActivity extends AppCompatActivity
      */
     @Override
     public void onClick(View v) {
+<<<<<<< HEAD
         switch (v.getId()) {
             case R.id.btnRCancel:
                 Intent intent = new Intent(RegisterActivity.this, WelcomeActivity.class);
@@ -69,6 +98,42 @@ public class RegisterActivity extends AppCompatActivity
                 Intent intent2 = new Intent(RegisterActivity.this,
                         LoginActivity.class);
                 startActivity(intent2);
+=======
+        switch(v.getId()) {
+           case R.id.btnCancelRegister:
+               Intent intent = new Intent(RegisterActivity.this, WelcomeActivity.class);
+               startActivity(intent);
+               break;
+
+            case R.id.btnSubmitRegister:
+                Intent intent2 = new Intent(RegisterActivity.this, LoginActivity.class);
+                if (txtConfPassword.getText().toString().equals(txtPassword.getText().toString())) {
+                    if (spinner.getSelectedItem() == "User") {
+                        new RegisteredUser(txtUserName.getText().toString()
+                                , txtPassword.getText().toString(), txtName.getText().toString()
+                                ,txtEmail.getText().toString());
+                    } else if (spinner.getSelectedItem() == "Manager") {
+                        new Manager(txtUserName.getText().toString()
+                                , txtPassword.getText().toString(), txtName.getText().toString()
+                                ,txtEmail.getText().toString());
+                    } else if (spinner.getSelectedItem() == "Worker") {
+                        new Worker(txtUserName.getText().toString()
+                                , txtPassword.getText().toString(), txtName.getText().toString()
+                                ,txtEmail.getText().toString());
+                    } else {
+                        new Admin(txtUserName.getText().toString()
+                                , txtPassword.getText().toString(), txtName.getText().toString()
+                                ,txtEmail.getText().toString());
+                    }
+                    startActivity(intent2);
+
+                } else {
+                    TextView textView = (TextView) findViewById(R.id.txtlbl);
+                    textView.setText("Passwords do not match");
+                }
+
+                break;
+>>>>>>> 7961ba36abab20ef9cea0ed94e7feae707b4f344
         }
     }
 }
