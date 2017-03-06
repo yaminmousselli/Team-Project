@@ -7,18 +7,16 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.EditText;
 import android.content.Intent;
-<<<<<<< HEAD
-
-=======
 import android.widget.TextView;
->>>>>>> 7961ba36abab20ef9cea0ed94e7feae707b4f344
 
 import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.R;
 import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model.Model;
 import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model.RegisteredUser;
 import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model.*;
 
-public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
+
+public class RegisterActivity extends AppCompatActivity implements
+        View.OnClickListener {
     Model model = Model.getInstance();
     Spinner spinner;
     EditText txtUserName;
@@ -27,16 +25,6 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     EditText txtPassword;
     EditText txtConfPassword;
 
-<<<<<<< HEAD
-public class RegisterActivity extends AppCompatActivity
-        implements View.OnClickListener {
-
-    EditText emailText;
-    Spinner accountType;
-    EditText usernameText;
-    EditText passwordText;
-    EditText lastNameText;
-    MySQLiteHelper db = new MySQLiteHelper(this);
     /**
      * onCreate used to setup RegisterActivity on creation
      * @param savedInstanceState is bundled data passed in to use at creation
@@ -46,18 +34,6 @@ public class RegisterActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-<<<<<<< HEAD
-        Button btnRCancel = (Button) findViewById(R.id.btnRCancel);
-        btnRCancel.setOnClickListener(this);
-
-        Button btnRSubmit = (Button) findViewById(R.id.btnSubmt);
-        emailText = (EditText) findViewById(R.id.txtEmail);
-        accountType = (Spinner) findViewById(R.id.accountTypeSpinner);
-        usernameText = (EditText) findViewById(R.id.txtUserName);
-        passwordText = (EditText) findViewById(R.id.txtPassword);
-        lastNameText = (EditText) findViewById(R.id.txtName);
-        btnRSubmit.setOnClickListener(this);
-=======
         txtUserName = (EditText) findViewById(R.id.txtCurrentName);
         txtName = (EditText) findViewById(R.id.txtName);
         txtEmail = (EditText) findViewById(R.id.txtEmail);
@@ -70,7 +46,6 @@ public class RegisterActivity extends AppCompatActivity
         btnRCancel.setOnClickListener(this);
         Button btnSubmitRegister = (Button) findViewById(R.id.btnSubmitRegister);
         btnSubmitRegister.setOnClickListener(this);
->>>>>>> 7961ba36abab20ef9cea0ed94e7feae707b4f344
     }
 
     /**
@@ -79,31 +54,11 @@ public class RegisterActivity extends AppCompatActivity
      */
     @Override
     public void onClick(View v) {
-<<<<<<< HEAD
-        switch (v.getId()) {
-            case R.id.btnRCancel:
+        switch(v.getId()) {
+            case R.id.btnCancelRegister:
                 Intent intent = new Intent(RegisterActivity.this, WelcomeActivity.class);
                 startActivity(intent);
                 break;
-            case R.id.btnSubmt:
-                String email = emailText.getText().toString();
-                String accountTypeText = accountType.getSelectedItem()
-                        .toString();
-                String username = usernameText.getText().toString();
-                String password = passwordText.getText().toString();
-                String lastName = lastNameText.getText().toString();
-                db.addRegisteredUserDB(new RegisteredUserDB(email,
-                        accountTypeText, username, password, lastName));
-
-                Intent intent2 = new Intent(RegisterActivity.this,
-                        LoginActivity.class);
-                startActivity(intent2);
-=======
-        switch(v.getId()) {
-           case R.id.btnCancelRegister:
-               Intent intent = new Intent(RegisterActivity.this, WelcomeActivity.class);
-               startActivity(intent);
-               break;
 
             case R.id.btnSubmitRegister:
                 Intent intent2 = new Intent(RegisterActivity.this, LoginActivity.class);
@@ -133,7 +88,6 @@ public class RegisterActivity extends AppCompatActivity
                 }
 
                 break;
->>>>>>> 7961ba36abab20ef9cea0ed94e7feae707b4f344
         }
     }
 }
