@@ -7,8 +7,7 @@ import android.widget.Button;
 import android.content.Intent;
 import android.widget.EditText;
 import android.widget.Spinner;
-import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model
-        .MySQLiteHelper;
+
 import com.allstarproject.cs2340.allstarwatercrowdsourcingapp.model
         .RegisteredUserDB;
 
